@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Inter';
+    font-size: 14px;
+}
+
+
+.backdrop::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    content: "";    
+    background-image: linear-gradient(0deg,#000 0,rgba(0,0,0,.1) 50%,rgba(0,0,0,.1));
+}
+
+@media (min-width: 1024px) {
+    .backdrop::after {
+        background-image: linear-gradient(90deg,#000 0,transparent 50%,transparent);
+    }
+}
