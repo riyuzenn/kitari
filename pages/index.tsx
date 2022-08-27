@@ -3,7 +3,7 @@ import type { NextPage, NextPageContext } from "next";
 import { useEffect, useState } from "react";
 import Banner from "../components/banner";
 import Header from "../components/header";
-import useFetch from "../lib/usefetch";
+
 
 interface DataProps {
   image: string;
