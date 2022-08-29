@@ -20,7 +20,7 @@ function Banner({ title, videourl, synopsis, rating, airingtime, released, onWat
         <>
             <div className="flex-col xl:flex xl:relative lg:relative lg:flex bg-[#000]">
                 <div className="backdrop">
-                    <video autoPlay={true} loop={true} src={videourl}></video>
+                    <video autoPlay={true} loop={true} muted={true} controls={false} src={videourl}></video>
                 </div>
                 <div
                     className="flex-col bg-[#000] px-10 py-10 space-y-5
