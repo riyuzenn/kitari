@@ -28,7 +28,7 @@ export default function Header(props: Props) {
         <>
             <div
                 className={`${props.className ? props.className : ""} ${
-                    scrollPosition ? "bg-[#000]" : ""
+                    scrollPosition ||  navbarOpen ? "bg-[#000]" : ""
                 } fixed top-0  w-full z-30 clearNav md:bg-opacity-95 transition duration-500 ease-in-out`}
             >
                 <div className="top-0 z-30 h-1 gb"></div>
