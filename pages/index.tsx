@@ -42,6 +42,13 @@ const IndexPage = ({ data, trend }: Props) => {
                 />
             </div>
             <TrendingCard data={trend} />
+            <iframe
+                className="inset-0 h-full"
+                
+                src="https://www.youtube.com/embed/P6GGq9D37Rg?autoplay=1&modestbranding=1&controls=0&mute=1&origin=https%3A%2F%2Fkaguya.live&enablejsapi=1&widgetid=1"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            ></iframe>
         </>
     );
 };

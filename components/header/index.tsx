@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -9,13 +9,26 @@ type Props = {
 export default function Header(props: Props) {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
     const router = useRouter();
+    const [scrollPosition, setScrollPosition] = useState(0);
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     return (
         <>
             <div
-                className={`${
-                    props.className ? props.className : ""
-                } fixed top-0  w-full z-30 clearNav md:bg-opacity-95 transition duration-300 ease-in-out`}
+                className={`${props.className ? props.className : ""} ${
+                    scrollPosition ? "bg-[#000]" : ""
+                } fixed top-0  w-full z-30 clearNav md:bg-opacity-95 transition duration-500 ease-in-out`}
             >
                 <div className="top-0 z-30 h-1 gb"></div>
                 <div className="flex flex-col max-w-6xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
@@ -23,7 +36,7 @@ export default function Header(props: Props) {
                         <Link href="/">
                             <a className="text-lg font-semibold rounded-lg tracking-widest focus:outline-none focus:shadow-outline">
                                 {/* <h1 className="text-[16px]  tracking-tighter text-[#bfbfbf] md:text-4x1 text-opacity-100 lg:text-[20px]">
-                  zenn
+                 
                 </h1> */}
 
                                 <img src="/images/logo.png" height={45} width={45} />

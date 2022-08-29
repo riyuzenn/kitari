@@ -20,7 +20,7 @@ const TrendingCard = ({ data }: Props) => {
                                 Explore all
                             </a>
                         </div>
-                        
+
                         <Swiper
                             spaceBetween={5}
                             slidesPerView={5}
