@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { FaSearch, FaBell } from "react-icons/fa";
 
 type Props = {
     className?: string;
@@ -69,47 +70,33 @@ export default function Header(props: Props) {
                     <div className={"md:flex flex-grow items-center" + (navbarOpen ? " flex" : " hidden")}>
                         <nav className="flex-col flex-grow">
                             <ul className="flex flex-grow justify-center md:justify-end md:px-0 md:pb-0 lg:px-0 lg:pb-0 xl:px-0 xl:pb-0 lg:justify-end xl:justify-end flex-wrap items-center px-2 pb-5 space-x-2">
+                                
                                 <li>
-                                    <Link href="/">
-                                        <a
-                                            className={`font-medium text-[15px] text-[#a0a0a0] rounded-md hover:text-[#0e0e0e] hover:bg-[#bfbfbf] flex items-center transition duration-150 ease-in-out px-5 py-1 ${
-                                                router.asPath === "/" ? "bg-[#bfbfbf] text-[#0e0e0e]" : ""
+                                    
+                                        <button
+                                            className={`font-medium text-[15px] justify-center text-[#a0a0a0] rounded-md hover:text-[#0e0e0e] hover:bg-[#bfbfbf] flex items-center transition duration-150 ease-in-out px-4 py-2 ${
+                                                router.asPath === "" ? "bg-[#bfbfbf] text-[#0e0e0e]" : ""
                                             }`}
                                         >
-                                            home
-                                        </a>
-                                    </Link>
+                                            <FaSearch size={18} />
+                                        </button>
+
                                 </li>
                                 <li>
-                                    <Link href="/projects">
-                                        <a
-                                            className={`font-medium text-[15px] text-[#a0a0a0] rounded-md hover:text-[#0e0e0e] hover:bg-[#bfbfbf] flex items-center transition duration-150 ease-in-out px-5 py-1 ${
-                                                router.asPath === "/projects" ? "bg-[#bfbfbf] text-[#0e0e0e]" : ""
+                                        <button
+                                            className={`font-medium text-[15px] py-2 justify-center text-[#a0a0a0] rounded-md hover:text-[#937193] flex items-center transition duration-150 ease-in-out mx-5 ${
+                                                router.asPath === "" ? "bg-[#bfbfbf] text-[#0e0e0e]" : ""
                                             }`}
                                         >
-                                            trending
-                                        </a>
-                                    </Link>
+                                            <FaBell size={18} />
+                                        </button>
                                 </li>
                                 <li>
-                                    <Link href="/about">
+                                    <Link href="/login">
                                         <a
-                                            className={`font-medium text-[15px] text-[#a0a0a0] rounded-md hover:text-[#0e0e0e] hover:bg-[#bfbfbf] flex items-center transition duration-150 ease-in-out px-5 py-1 ${
-                                                router.asPath === "/about" ? "bg-[#bfbfbf] text-[#0e0e0e]" : ""
-                                            }`}
+                                            className={`font-medium text-[15px] rounded-md bg-[#bfbfbf] text-[#0e0e0e] hover:bg-[#a0a0a0] flex items-center transition duration-150 ease-in-out px-5 py-1`}
                                         >
-                                            about
-                                        </a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/contact">
-                                        <a
-                                            className={`font-medium text-[15px] text-[#a0a0a0] rounded-md hover:text-[#0e0e0e] hover:bg-[#bfbfbf] flex items-center transition duration-150 ease-in-out px-5 py-1 ${
-                                                router.asPath === "/contact" ? "bg-[#bfbfbf] text-[#0e0e0e]" : ""
-                                            }`}
-                                        >
-                                            contact
+                                            Login
                                         </a>
                                     </Link>
                                 </li>
