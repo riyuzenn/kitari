@@ -42,7 +42,6 @@ const IndexPage = ({ data, trend }: Props) => {
                 />
             </div>
             <TrendingCard data={trend} />
-            
         </>
     );
 };

@@ -18,11 +18,27 @@
     left: 0;
     display: block;
     content: "";
-    background-image: linear-gradient(0deg, #000 0, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1));
+    /* background-image: linear-gradient(0deg, #000 0, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1)); */
 }
 
 @media (min-width: 1024px) {
     .backdrop::after {
         background-image: linear-gradient(90deg, #000 0, transparent 50%, transparent);
     }
+}
+
+.img-hover {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.img-hover img {
+    width: 100%;
+    transition: 0.5s all ease-in-out;
+}
+
+.img-hover:hover img {
+    transform: scale(1.1);
 }

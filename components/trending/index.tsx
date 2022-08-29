@@ -12,7 +12,7 @@ const TrendingCard = ({ data }: Props) => {
     return (
         <>
             <div className="h-auto">
-                <div className=" flex flex-col justify-center my-10">
+                <div className=" flex flex-col justify-center my-20">
                     <div className="mx-10 space-y-10">
                         <div className="flex items-center space-x-5">
                             <h1 className="text-[2rem] text-[#e7e7e7] font-semibold">Trending</h1>
@@ -22,7 +22,7 @@ const TrendingCard = ({ data }: Props) => {
                         </div>
 
                         <Swiper
-                            spaceBetween={5}
+                            spaceBetween={1}
                             slidesPerView={5}
                             breakpoints={{
                                 320: {
@@ -39,7 +39,7 @@ const TrendingCard = ({ data }: Props) => {
                                 },
                                 820: {
                                     width: 820,
-                                    slidesPerView: 4,
+                                    slidesPerView: 3,
                                 },
                                 1024: {
                                     width: 1024,
@@ -54,9 +54,12 @@ const TrendingCard = ({ data }: Props) => {
                         >
                             {data.map((data: DataProps, index: number) => {
                                 return (
-                                    <SwiperSlide className="">
-                                        <div>
-                                            <img className="w-[225px] h-[320px]" src={data.image}></img>
+                                    <SwiperSlide>
+                                        <div className="img-hover">
+                                            <img
+                                                className=" md:w-[198px] md:h-[277px] xl:w-[225px] xl:h-[320px]"
+                                                src={data.image}
+                                            ></img>
                                         </div>
                                     </SwiperSlide>
                                 );
