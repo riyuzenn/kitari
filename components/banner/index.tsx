@@ -29,31 +29,31 @@ function Banner({
   return (
     <>
       <div className="flex-col xl:flex xl:relative lg:relative lg:flex bg-[#000]">
-        <div className="backdrop xl:absolute lg:absolute">
+        <div className="backdrop">
             <video autoPlay={true} loop={true} src={videourl}></video>
         </div>
         <div className="flex-col bg-[#000] px-10 py-10 space-y-5
         
             xl:bg-inv xl:absolute xl:mx-20 
-            xl:my-32 xl:space-y-10 xl:w-[50%]
+            xl:my-48 xl:space-y-10 xl:w-[50%]
             
             lg:bg-inv lg:absolute lg:mx-20 
             lg:my-24 lg:space-y-7 lg:w-[55%]
             "
           >
-            <h1 className="text-[#fff] text-[1.3rem] font-extrabold xl:text-[3rem] lg:text-[2.5rem]">{title}</h1>
+            <h1 className="text-[#fff] text-[1.3rem] font-bold xl:text-[3rem] lg:text-[2.5rem]">{title}</h1>
             <div className="flex space-x-5">
               <div className="flex items-center">
                 <FaStar size={24} className="pr-3" />
-                <p className="h-[24] font-bold text-[12px] lg:text-[12px]">{rating}</p>
+                <p className="h-[24] font-semibold text-[12px] lg:text-[12px]">{rating}</p>
               </div>
               <div className="flex items-center">
                 <FaClock size={24} className="pr-3" />
-                <p className="h-[24] font-bold text-[12px] lg:text-[12px]">{airingtime}</p>
+                <p className="h-[24] font-semibold text-[12px] lg:text-[12px]">{airingtime}</p>
               </div>
               <div className="flex items-center">
                 <FaBirthdayCake size={24} className="pr-3" />
-                <p className="h-[24] font-bold text-[12px] lg:text-[12px]">{released}</p>
+                <p className="h-[24] font-semibold text-[12px] lg:text-[12px]">{released}</p>
               </div>
             </div>
             <p className="hidden xl:block lg:block lg:text-[1rem] xl:text-[1.2rem] ">

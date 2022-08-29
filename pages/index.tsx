@@ -1,9 +1,8 @@
 
-import type { NextPage, NextPageContext } from "next";
-import { useEffect, useState } from "react";
+import type { NextPageContext } from "next";
 import Banner from "../components/banner";
 import Header from "../components/header";
-
+import TrendingCard from "../components/trending/";
 
 interface DataProps {
   image: string;
@@ -35,13 +34,14 @@ const IndexPage = ({ data }: Props) => {
           onAddClick={() => {alert("Add")}}
         />
       </div>
-      
-     
+      <div className="h-44 bg-[#121212]">
+        <TrendingCard />
+      </div>
     </>
   )
 }
 export async function getServerSideProps(context: NextPageContext) {
-  
+   
   const res = await fetch(`https://api.kitari.ml/v1/banner`, {
     method: "GET",
     headers: new Headers({

@@ -1,7 +1,8 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '../styles/globals.css';
+import 'swiper/css';
+import type { AppProps } from 'next/app';
 import { ThemeProvider } from "next-themes";
-import Header from '../components/header';
+
 
 function Kitari({ Component, pageProps }: AppProps) {
   return (

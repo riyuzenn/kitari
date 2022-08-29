@@ -13,7 +13,7 @@ export default function Header(props: Props) {
     return (
         <>
             <div
-                className={`${props.className} fixed top-0  w-full z-30 clearNav md:bg-opacity-95 transition duration-300 ease-in-out`}
+                className={`${props.className ? props.className : ""} fixed top-0  w-full z-30 clearNav md:bg-opacity-95 transition duration-300 ease-in-out`}
             >
                 <div className="top-0 z-30 h-1 gb"></div>
                 <div className="flex flex-col max-w-6xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
@@ -24,7 +24,7 @@ export default function Header(props: Props) {
                   zenn
                 </h1> */}
 
-                                <img src="/logo.png" height={45} width={45} />
+                                <img src="/images/logo.png" height={45} width={45} />
                             </a>
                         </Link>
                         <button
@@ -72,21 +72,10 @@ export default function Header(props: Props) {
                                                 router.asPath === "/projects" ? "bg-[#bfbfbf] text-[#0e0e0e]" : ""
                                             }`}
                                         >
-                                            projects
+                                            trending
                                         </a>
                                     </Link>
-                                </li>
-                                <li>
-                                    <Link href="/tools">
-                                        <a
-                                            className={`font-medium text-[15px] text-[#a0a0a0] rounded-md hover:text-[#0e0e0e] hover:bg-[#bfbfbf] flex items-center transition duration-150 ease-in-out px-5 py-1 ${
-                                                router.asPath === "/tools" ? "bg-[#bfbfbf] text-[#0e0e0e]" : ""
-                                            }`}
-                                        >
-                                            tools
-                                        </a>
-                                    </Link>
-                                </li>
+                                </li> 
                                 <li>
                                     <Link href="/about">
                                         <a
