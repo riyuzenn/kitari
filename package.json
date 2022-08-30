@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "prettier ."
+    "check": "prettier --check .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "next": "latest",

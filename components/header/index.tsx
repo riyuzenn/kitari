@@ -13,7 +13,9 @@ export default function Header(props: Props) {
     return (
         <>
             <div
-                className={`${props.className ? props.className : ""} fixed top-0  w-full z-30 clearNav md:bg-opacity-95 transition duration-300 ease-in-out`}
+                className={`${
+                    props.className ? props.className : ""
+                } fixed top-0  w-full z-30 clearNav md:bg-opacity-95 transition duration-300 ease-in-out`}
             >
                 <div className="top-0 z-30 h-1 gb"></div>
                 <div className="flex flex-col max-w-6xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
@@ -75,7 +77,7 @@ export default function Header(props: Props) {
                                             trending
                                         </a>
                                     </Link>
-                                </li> 
+                                </li>
                                 <li>
                                     <Link href="/about">
                                         <a

@@ -1,45 +1,72 @@
-
+import type { NextPageContext } from "next";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-export default function TrendingCard() {
-    return (
-      <>
-        <div className="bg-[#121212] h-[400px]">
-          <Swiper
-              spaceBetween={5}
-              slidesPerView={5}
-              breakpoints={{
-                  320: {
-                      width: 320,
-                      slidesPerView: 2,
-                  },
-                    360: {
-                        width: 360,
-                        slidesPerView: 2,
-                    },
-                    768: {
-                        width: 768,
-                        slidesPerView: 3,
-                    },
-                    820: {
-                        width: 820,
-                        slidesPerView: 4,
-                    },
-                    1024: {
-                        width: 1024,
-                        slidesPerView: 5,
-                    },
-                    1280: {
-                        width: 1280,
-                        spaceBetween: 10,
-                        slidesPerView: 5,
-                    },
-                }}
-            >
-            
-          </Swiper>
-        </div>
-      </>
-    )
+interface DataProps {
+    image: string;
+    title: string;
 }
+type Props = {
+    data: DataProps[];
+};
+const TrendingCard = ({ data }: Props) => {
+    return (
+        <>
+            <div className="h-auto">
+                <div className=" flex flex-col justify-center my-10">
+                    <div className="mx-10 space-y-10">
+                        <div className="flex items-center space-x-5">
+                            <h1 className="text-[2rem] text-[#e7e7e7] font-semibold">Trending</h1>
+                            <a href="" className="text-[#9d7b9d] text-[1.2rem] font-semibold">
+                                Explore all
+                            </a>
+                        </div>
+                        
+                        <Swiper
+                            spaceBetween={5}
+                            slidesPerView={5}
+                            breakpoints={{
+                                320: {
+                                    width: 320,
+                                    slidesPerView: 2,
+                                },
+                                360: {
+                                    width: 360,
+                                    slidesPerView: 2,
+                                },
+                                768: {
+                                    width: 768,
+                                    slidesPerView: 3,
+                                },
+                                820: {
+                                    width: 820,
+                                    slidesPerView: 4,
+                                },
+                                1024: {
+                                    width: 1024,
+                                    slidesPerView: 5,
+                                },
+                                1280: {
+                                    width: 1280,
+                                    spaceBetween: 10,
+                                    slidesPerView: 5,
+                                },
+                            }}
+                        >
+                            {data.map((data: DataProps, index: number) => {
+                                return (
+                                    <SwiperSlide className="">
+                                        <div>
+                                            <img className="w-[225px] h-[320px]" src={data.image}></img>
+                                        </div>
+                                    </SwiperSlide>
+                                );
+                            })}
+                        </Swiper>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+};
 
+export default TrendingCard;
