@@ -7,7 +7,19 @@
     font-family: "Inter";
     font-size: 14px;
     box-sizing: border-box;
-    /* overflow-x: hidden; */
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .backdrop::after {
@@ -19,12 +31,6 @@
     display: block;
     content: "";
     background-image: linear-gradient(120deg, #000 0, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1));
-}
-
-@media (min-width: 1024px) {
-    .backdrop::after {
-        background-image: linear-gradient(90deg, #000 0, transparent 50%, transparent);
-    }
 }
 
 .img-hover {
@@ -41,4 +47,66 @@
 
 .img-hover:hover img {
     transform: scale(1.1);
+}
+
+.landing {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-image: url("/images/landing-2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.shadow::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    content: "";
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1));
+}
+
+.form {
+    background-color: rgba(36, 36, 36, 0.75);
+    border: 1px solid rgba(156, 156, 156, 0.15);
+    backdrop-filter: blur(20px);
+    opacity: 0.9;
+    box-shadow: 0 2px 10px rgb(0 0 0 / 20%);
+    max-width: 360px;
+    max-height: 600px;
+    min-height: 400px;
+}
+
+@media only screen and (min-width: 1024px) {
+    .backdrop::after {
+        background-image: linear-gradient(90deg, #000 0, transparent 50%, transparent);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .landing {
+        background-image: unset;
+    }
+    .form {
+        background-color: inherit;
+        border: none;
+        box-shadow: none;
+        min-height: auto;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .landing {
+        background-image: unset;
+        height: 100vh;
+    }
+    .form {
+        background-color: inherit;
+        border: none;
+        box-shadow: none;
+        min-height: auto;
+    }
 }
