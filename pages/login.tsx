@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 
 const LoginPage: NextPage = () => {
@@ -7,7 +8,11 @@ const LoginPage: NextPage = () => {
             <div className="landing justify-center items-center xl:justify-start xl:items-start lg:justify-start lg:items-start">
                 <div className="my-10 xl:my-0 lg:px-10 lg:py-10 xl:px-20 xl:py-20 xl:space-y-20 space-y-20">
                     <div className="px-10 xl:px-0 lg:px-0">
-                        <img className="text-[2rem] w-20 h-20 font-semibold" src="/images/logo.png" />
+                        <Link href="/">
+                            <a>
+                                <img className="text-[2rem] w-20 h-20 font-semibold" src="/images/logo.png" />
+                            </a>
+                        </Link>
                     </div>
                     <div className="form flex-col justify-center  space-y-7 rounded-[8px] px-10 lg:py-10 lg:mx-20 xl:py-10 xl:mx-20 xl:ml-12 ">
                         <h1 className="text-[1.5rem] font-medium text-[#e7e7e7]">👋 Welcome Back</h1>
@@ -66,32 +71,34 @@ const LoginPage: NextPage = () => {
                             </button>
                         </div>
                     </div>
-                    
+
                     <div className="space-y-5 xl:space-y-5 xl:flex-col lg:space-y-5 lg:flex-col">
                         <div className="xl:flex xl:gap-10 lg:flex lg:gap-10">
-                        <div className="flex space-x-5 justify-center items-center xl:justify-start lg:justify-start">
-                            <a>
-                                <FaGithub size={20} />
-                            </a>
-                            <a>
-                                <FaTwitter size={20} />
-                            </a>
-                            <a>
-                                <FaDiscord size={20} />
-                            </a>
-                        </div>
-                        <p className="hidden xl:block">|</p>
-                        <div className="flex space-x-5 justify-center items-center xl:justify-start lg:justify-start">
-                            <p>About</p>
-                            <p>Terms of Service</p>
-                            <p>Privacy Policy</p>
-                        </div>
+                            <div className="flex space-x-5 justify-center items-center xl:justify-start lg:justify-start">
+                                <a>
+                                    <FaGithub size={20} />
+                                </a>
+                                <a>
+                                    <FaTwitter size={20} />
+                                </a>
+                                <a>
+                                    <FaDiscord size={20} />
+                                </a>
+                            </div>
+                            <p className="hidden xl:block">|</p>
+                            <div className="flex space-x-5 justify-center items-center xl:justify-start lg:justify-start">
+                                <p>About</p>
+                                <p>Terms of Service</p>
+                                <p>Privacy Policy</p>
+                            </div>
                         </div>
                         <div className="hidden xl:block justify-end">
-                            <a className="text-[#e7e7e7]" href="https://unsplash.com/@fakurian" target="_blank" >Image by @fakurian - unsplash.com</a>
+                            <a className="text-[#e7e7e7]" href="https://unsplash.com/@fakurian" target="_blank">
+                                Image by @fakurian - unsplash.com
+                            </a>
                         </div>
                     </div>
-                    
+
                     {/* <div className="flex space-x-5 justify-between text-[1.5rem]">
                         <div className="flex-col justify-center xl:flex xl:justify-start items-center space-x-5">
                         <div className="flex space-x-5 justify-center">
