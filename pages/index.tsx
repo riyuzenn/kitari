@@ -1,5 +1,6 @@
 import type { NextPageContext } from "next";
 import Banner from "../components/banner";
+import Footer from "../components/footer";
 import Header from "../components/header";
 import TrendingCard from "../components/trending/";
 
@@ -23,9 +24,9 @@ type Props = {
 };
 const IndexPage = ({ data, trend }: Props) => {
     return (
-        <>
+        <div className="h-full w-full min-h-screen min-w-screen py-10">
             <Header />
-            <div>
+
                 <Banner
                     title={data[0].title}
                     videourl={data[0].videoUrl}
@@ -40,9 +41,10 @@ const IndexPage = ({ data, trend }: Props) => {
                         alert("Add");
                     }}
                 />
-            </div>
+
             <TrendingCard data={trend} />
-        </>
+            <Footer className="px-10" />
+        </div>
     );
 };
 export async function getServerSideProps(context: NextPageContext) {

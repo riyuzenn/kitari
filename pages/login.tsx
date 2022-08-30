@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaDiscord } from "react-icons/fa";
+import Footer from "../components/footer";
 
 const LoginPage: NextPage = () => {
     return (
@@ -75,65 +76,7 @@ const LoginPage: NextPage = () => {
                         </div>
                     </div>
 
-                    <div className="space-y-5 xl:space-y-5 xl:flex-col lg:space-y-5 lg:flex-col">
-                        <div className="xl:flex xl:gap-10 lg:flex lg:gap-10">
-                            <div className="flex space-x-5 justify-center items-center xl:justify-start lg:justify-start">
-                                <a
-                                    className="transition-all ease-in-out hover:text-[#e7e7e7]"
-                                    href="https://github.com/kitariapp"
-                                >
-                                    <FaGithub size={20} />
-                                </a>
-                                <a
-                                    className="transition-all ease-in-out hover:text-[#e7e7e7]"
-                                    href="https://twitter.com/kitariapp"
-                                >
-                                    <FaTwitter size={20} />
-                                </a>
-                                <a
-                                    className="transition-all ease-in-out hover:text-[#e7e7e7]"
-                                    href="https://discord.com"
-                                >
-                                    <FaDiscord size={20} />
-                                </a>
-                            </div>
-                            <p className="hidden xl:block">|</p>
-                            <div className="flex space-x-5 justify-center items-center xl:justify-start lg:justify-start">
-                                <Link href="/about">
-                                    <a className="transition-all ease-in-out hover:text-[#e7e7e7]">About</a>
-                                </Link>
-                                <Link href="/tos">
-                                    <a className="transition-all ease-in-out hover:text-[#e7e7e7]">Terms of Service</a>
-                                </Link>
-                                <Link href="/privacy">
-                                    <a className="transition-all ease-in-out hover:text-[#e7e7e7]">Privacy Policy</a>
-                                </Link>
-                            </div>
-                        </div>
-                        <div className="hidden xl:block justify-end">
-                            <a className="text-[#e7e7e7]" href="https://unsplash.com/@fakurian" target="_blank">
-                                Image by @fakurian - unsplash.com
-                            </a>
-                        </div>
-                    </div>
-
-                    {/* <div className="flex space-x-5 justify-between text-[1.5rem]">
-                        <div className="flex-col justify-center xl:flex xl:justify-start items-center space-x-5">
-                        <div className="flex space-x-5 justify-center">
-                        <a><FaGithub  size={20} /></a>
-                        <a><FaTwitter size={20} /></a>
-                        <a><FaDiscord size={20} /></a>
-                        </div>
-                        <div className="flex rounded-[50%] w-2 h-2 bg-[gray]"></div>
-                        <p>About</p>
-                        <p>Terms of Service</p>
-                        <p>Privacy Policy</p>
-                        </div>
-                        <div className="hidden xl:block justify-end">
-                            <a className="text-[#e7e7e7]" href="https://unsplash.com/@fakurian" target="_blank" >Image by @fakurian - unsplash.com</a>
-                        </div>
-
-                    </div> */}
+                    <Footer notice={false} />
                 </div>
             </div>
         </section>
