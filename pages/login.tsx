@@ -15,6 +15,9 @@ const LoginPage: NextPage = () => {
                         </Link>
                     </div>
                     <div className="form flex-col justify-center  space-y-7 rounded-[8px] px-10 lg:py-10 lg:mx-20 xl:py-10 xl:mx-20 xl:ml-12 ">
+                        <Link href="/">
+                            <a>&larr;</a>
+                        </Link>
                         <h1 className="text-[1.5rem] font-medium text-[#e7e7e7]">👋 Welcome Back</h1>
                         <p className="text-[#bfbfbf]">We're happy to see you again!</p>
                         <p>As of now, Kitari only support existing Google or Discord account.</p>
@@ -69,6 +72,7 @@ const LoginPage: NextPage = () => {
                                 <FaDiscord className="h-6 w-6" />
                                 <p>Sign in with Discord</p>
                             </button>
+                            
                         </div>
                     </div>
 
