@@ -13,27 +13,28 @@ import { Rating } from "../rating";
 interface DataProps {
     image: string;
     title: string;
+    rating: number;
 }
 type Props = {
     data: DataProps[];
 };
 const TrendingCard = ({ data }: Props) => {
+    function truncate(str: string, words: number) {
+        if (str === "") return;
+        let truncated_str = str.split(" ").splice(0, words).join(" ");
+        return `${truncated_str} ${str.length > truncated_str.length ? "..." : ""}`;
+    }
     return (
         <>
             <div className="h-auto">
                 <div className=" flex-col justify-center my-10">
-                <div className="flex items-center mx-10 my-10 space-x-5">
-                            <h1 className="text-[2rem] text-[#e7e7e7] font-semibold">Trending</h1>
-                            <Link href="/trending">
-                                <a className="text-[#9d7b9d] text-[1.2rem] font-semibold">
-                                    Explore all
-                                </a>
-                            </Link>
-                            
-                        </div>
+                    <div className="flex items-center mx-10 my-10 space-x-5">
+                        <h1 className="text-[2rem] text-[#e7e7e7] font-semibold">Trending</h1>
+                        <Link href="/trending">
+                            <a className="text-[#9d7b9d] text-[1.2rem] font-semibold">Explore all</a>
+                        </Link>
+                    </div>
                     <div className="flex mx-10">
-                        
-
                         <Swiper
                             modules={[Navigation, Pagination, Zoom, History, Mousewheel]}
                             spaceBetween={1}
@@ -70,30 +71,42 @@ const TrendingCard = ({ data }: Props) => {
                                 return (
                                     <SwiperSlide>
                                         <div>
-                                            <div className="scale-95 hover:scale-100 transition-all ease-in-out duration-500">
-                                                <img
-                                                    className="w-full h-full object-cover"
-                                                    src={data.image}
-                                                />
+                                            <div className="relative bg-daccent_1 scale-95 hover:scale-100 transition-all ease-in-out duration-500">
+                                                <div className="pt-[140%] bg-daccent_1">
+                                                    <img
+                                                        className="absolute transition-all ease-in-out top-0 left-0 w-full h-full"
+                                                        src={data.image}
+                                                    />
+                                                </div>
                                             </div>
-                                            
-                                            <p className="pt-5 text-md">Kaguya Sama</p>
+
+                                            <p className="pt-5 text-md">{truncate(data.title, 3)}</p>
                                             <div className="flex space-x-4 items-center">
-                                            
-                                            <Rating fillColor="#937193" emptyColor="#a0a0a0" size={16} initialValue={Number("8.1")/2} ratingValue={0} readonly />
-                                            
-                                            <p className="pt-1 text-md">8.17</p>
+                                                <Rating
+                                                    fillColor="#937193"
+                                                    emptyColor="#a0a0a0"
+                                                    size={16}
+                                                    initialValue={data.rating / 2}
+                                                    ratingValue={0}
+                                                    readonly
+                                                />
+
+                                                <p className="pt-1 text-md">{data.rating.toString()}</p>
                                             </div>
-                                            
                                         </div>
                                     </SwiperSlide>
                                 );
                             })}
                             <SwiperSlide>
-                            <div className="flex justify-center items-center scale-95 hover:scale-100 transition-all ease-in-out duration-500 bg-daccent_2">
-                                            <Link href="/trending">Explore All</Link>
+                                <Link href="/trending">
+                                    <div className="relative bg-daccent_1 transition-all ease-in-out duration-500">
+                                        <div className="pt-[140%] bg-daccent_1">
+                                            <h1 className="flex absolute top-0 left-0 w-full h-full text-xl justify-center items-center">
+                                                Explore All
+                                            </h1>
                                         </div>
-                            
+                                    </div>
+                                </Link>
                             </SwiperSlide>
                         </Swiper>
                         {/* <div className="flex flex-col  space-y-10 pl-5">

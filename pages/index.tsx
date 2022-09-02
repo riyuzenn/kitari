@@ -17,6 +17,7 @@ interface DataProps {
 interface TrendProps {
     image: string;
     title: string;
+    rating: number;
 }
 type Props = {
     data: DataProps[];
@@ -27,20 +28,20 @@ const IndexPage = ({ data, trend }: Props) => {
         <div className="h-full w-full min-h-screen min-w-screen py-10">
             <Header />
 
-                <Banner
-                    title={data[0].title}
-                    videourl={data[0].videoUrl}
-                    synopsis={data[0].description}
-                    rating={data[0].rating}
-                    airingtime={data[0].type}
-                    released={data[0].released}
-                    onWatchClick={() => {
-                        alert("Watch");
-                    }}
-                    onAddClick={() => {
-                        alert("Add");
-                    }}
-                />
+            <Banner
+                title={data[0].title}
+                videourl={data[0].videoUrl}
+                synopsis={data[0].description}
+                rating={data[0].rating}
+                airingtime={data[0].type}
+                released={data[0].released}
+                onWatchClick={() => {
+                    alert("Watch");
+                }}
+                onAddClick={() => {
+                    alert("Add");
+                }}
+            />
 
             <TrendingCard data={trend} />
             <Footer className="px-10" />
@@ -61,8 +62,11 @@ export async function getServerSideProps(context: NextPageContext) {
         }),
     });
 
+    // console.log(`${trendres.status} ${await trendres.json()}`);
+
     const data = (await datares.json()) as Promise<DataProps[]>;
     const trend = (await trendres.json()) as Promise<TrendProps[]>;
+    console.log(trend);
     return { props: { data, trend } };
 }
 

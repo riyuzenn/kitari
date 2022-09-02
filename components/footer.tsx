@@ -4,14 +4,14 @@ import Link from "next/link";
 type Props = {
     notice?: boolean;
     className?: string;
-}
+};
 
 export default function Footer({ notice = true, className = "" }: Props) {
     function getDate() {
         let d = new Date();
         let year = d.getFullYear();
         let initial = 2022;
-        return `${initial === year? initial : `${initial}-${year}`}`
+        return `${initial === year ? initial : `${initial}-${year}`}`;
     }
 
     return (
@@ -49,12 +49,13 @@ export default function Footer({ notice = true, className = "" }: Props) {
                     </div>
                 </div>
                 <div className="hidden xl:block justify-end">
-                    {notice ?
-                        <p>{`© ${getDate()} Kitari Developers. All rights reserved. `}</p> : 
+                    {notice ? (
+                        <p>{`© ${getDate()} Kitari Developers. All rights reserved. `}</p>
+                    ) : (
                         <a className="text-[#e7e7e7]" href="https://unsplash.com/@fakurian" target="_blank">
                             Image from @fakurian - unsplash.com
                         </a>
-                    }
+                    )}
                 </div>
             </div>
         </>
