@@ -21,9 +21,8 @@ interface TrendProps {
 }
 type Props = {
     data: DataProps[];
-    trend: TrendProps[];
 };
-const IndexPage = ({ data, trend }: Props) => {
+const IndexPage = ({ data }) => {
     return (
         <div className="h-full w-full min-h-screen min-w-screen py-10">
             <Header />
@@ -43,19 +42,13 @@ const IndexPage = ({ data, trend }: Props) => {
                 }}
             />
 
-            <TrendingCard data={trend} />
+            <TrendingCard />
             <Footer className="px-10" />
         </div>
     );
 };
 export async function getServerSideProps(context: NextPageContext) {
-    const datares = await fetch(`https://api.kitari.ml/v1/banner`, {
-        method: "GET",
-        headers: new Headers({
-            token: process.env.KITARI_TOKEN || "",
-        }),
-    });
-    const trendres = await fetch(`https://api.kitari.ml/v1/trending`, {
+    const res = await fetch(`https://api.kitari.ml/v1/banner`, {
         method: "GET",
         headers: new Headers({
             token: process.env.KITARI_TOKEN || "",
@@ -64,10 +57,8 @@ export async function getServerSideProps(context: NextPageContext) {
 
     // console.log(`${trendres.status} ${await trendres.json()}`);
 
-    const data = (await datares.json()) as Promise<DataProps[]>;
-    const trend = (await trendres.json()) as Promise<TrendProps[]>;
-    console.log(trend);
-    return { props: { data, trend } };
+    const data = (await res.json()) as Promise<DataProps[]>;
+    return { props: { data } };
 }
 
 export default IndexPage;

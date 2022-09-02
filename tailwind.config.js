@@ -4,7 +4,18 @@ module.exports = {
     darkMode: "class",
     content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
     theme: {
-        extend: {},
+        extend: {
+            animation: {
+              fade: 'fadeIn 1s ease-in-out',
+              fadeOut: 'fadeOut 1s ease-in-out'
+            },
+            keyframes: {
+              fade: {
+                '0%': { opacity: 0 },
+                '100%': { opacity: 100 },
+              },
+            },
+        },
         colors: {
             inv: "transparent",
             primary: "#e7e7e7",

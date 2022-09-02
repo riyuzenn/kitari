@@ -41,6 +41,8 @@ function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
         // Do nothing if the url is not given
         if (!url) return;
 
+        cancelRequest.current = false;
+
         const fetchData = async () => {
             dispatch({ type: "loading" });
 
@@ -53,7 +55,6 @@ function useFetch<T = unknown>(url?: string, options?: RequestInit): State<T> {
             try {
                 const response = await fetch(url, options);
                 if (!response.ok) {
-                    console.log(response.headers);
                     throw new Error(response.statusText);
                 }
 

@@ -1,29 +1,57 @@
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Zoom, History, Mousewheel } from "swiper";
+import useFetch from "../../lib/usefetch";
+
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/zoom";
 import "swiper/css/history";
 import "swiper/css/mousewheel";
 
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { Rating } from "../rating";
+import { useEffect, useState } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 interface DataProps {
     image: string;
     title: string;
     rating: number;
 }
-type Props = {
-    data: DataProps[];
+type SkelProps = {
+    count?: number;
 };
-const TrendingCard = ({ data }: Props) => {
+function Skel({ count = 10 }: SkelProps) {
+    return (
+        <>
+            {Array(count)
+                .join()
+                .split(",")
+                .map(() => {
+                    return(
+                    <SwiperSlide>
+                        <div>
+                            <div className="relative bg-daccent_1 scale-95 hover:scale-100 transition-all ease-in-out duration-500">
+                                <div className="pt-[140%] bg-daccent_1"></div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    );
+                })}
+        </>
+    );
+};
+
+const TrendingCard = () => {
     function truncate(str: string, words: number) {
         if (str === "") return;
         let truncated_str = str.split(" ").splice(0, words).join(" ");
         return `${truncated_str} ${str.length > truncated_str.length ? "..." : ""}`;
     }
+
+    const { data, error } = useFetch<DataProps[]>("https://api.kitari.ml/v1/trending");
+
+    if (error) return `Error:`;
     return (
         <>
             <div className="h-auto">
@@ -67,39 +95,58 @@ const TrendingCard = ({ data }: Props) => {
                                 },
                             }}
                         >
-                            {data.map((data: DataProps, index: number) => {
-                                return (
-                                    <SwiperSlide>
-                                        <div>
-                                            <div className="relative bg-daccent_1 scale-95 hover:scale-100 transition-all ease-in-out duration-500">
-                                                <div className="pt-[140%] bg-daccent_1">
-                                                    <img
-                                                        className="absolute transition-all ease-in-out top-0 left-0 w-full h-full"
-                                                        src={data.image}
-                                                    />
-                                                </div>
-                                            </div>
+                            {!data
+                                ? 
+                                Array(10)
+                .join()
+                .split(",")
+                .map(() => {
+                    return(
+                    <SwiperSlide>
+                        <div>
+                            <div className="relative bg-daccent_1 scale-95 hover:scale-100 transition-all ease-in-out duration-500">
+                                <div className="pt-[140%] bg-daccent_1"></div>
+                            </div>
+                        </div>
+                    </SwiperSlide>
+                    );
+                })
+                                : data?.map((data: DataProps, index: number) => {
+                                      return (
+                                          <>
+                                              <SwiperSlide className="animate-fade">
+                                                  <div>
+                                                      <div className="relative bg-daccent_1 scale-95 hover:scale-100 transition-all ease-in-out duration-500">
+                                                          <div className="pt-[140%] bg-daccent_1">
+                                                              <img
+                                                                  className="absolute transition-all ease-in-out top-0 left-0 w-full h-full"
+                                                                  src={data.image}
+                                                              />
+                                                          </div>
+                                                      </div>
 
-                                            <p className="pt-5 text-md">{truncate(data.title, 3)}</p>
-                                            <div className="flex space-x-4 items-center">
-                                                <Rating
-                                                    fillColor="#937193"
-                                                    emptyColor="#a0a0a0"
-                                                    size={16}
-                                                    initialValue={data.rating / 2}
-                                                    ratingValue={0}
-                                                    readonly
-                                                />
+                                                      <p className="pt-5 text-md">{truncate(data.title, 3)}</p>
+                                                      <div className="flex space-x-4 items-center">
+                                                          <Rating
+                                                              fillColor="#937193"
+                                                              emptyColor="#a0a0a0"
+                                                              size={16}
+                                                              initialValue={data.rating / 2}
+                                                              ratingValue={0}
+                                                              readonly
+                                                          />
 
-                                                <p className="pt-1 text-md">{data.rating.toString()}</p>
-                                            </div>
-                                        </div>
-                                    </SwiperSlide>
-                                );
-                            })}
+                                                          <p className="pt-1 text-md">{data.rating.toString()}</p>
+                                                      </div>
+                                                  </div>
+                                              </SwiperSlide>
+                                          </>
+                                      );
+                                  })}
+
                             <SwiperSlide>
                                 <Link href="/trending">
-                                    <div className="relative bg-daccent_1 transition-all ease-in-out duration-500">
+                                    <div className="relative scale-95 bg-daccent_1 transition-all ease-in-out duration-500">
                                         <div className="pt-[140%] bg-daccent_1">
                                             <h1 className="flex absolute top-0 left-0 w-full h-full text-xl justify-center items-center">
                                                 Explore All
@@ -109,14 +156,6 @@ const TrendingCard = ({ data }: Props) => {
                                 </Link>
                             </SwiperSlide>
                         </Swiper>
-                        {/* <div className="flex flex-col  space-y-10 pl-5">
-                            <button className=" bg-daccent_2 py-20 px-5 rounded-xl">
-                                <FaAngleRight size={20} />
-                            </button>
-                            <button className=" bg-daccent_2 py-20 px-5 rounded-xl">
-                                <FaAngleLeft size={20} />
-                            </button>
-                        </div> */}
                     </div>
                 </div>
             </div>
