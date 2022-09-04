@@ -1,5 +1,8 @@
 import type { NextPage, NextPageContext } from "next";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import Episode from "../../../../components/ep";
+import Header from "../../../../components/header";
 import { IStreamProps } from "../../../../types";
 
 const KitariPlayer = dynamic(() => import("../../../../components/player"), {
@@ -10,9 +13,23 @@ type StreamProps = {
     data: IStreamProps;
 };
 const StreamPage = ({ data }: StreamProps) => {
+    const router = useRouter();
+    const { name } = router.query;
     return (
         <>
-            <KitariPlayer stream_url={data.stream_url} />
+            <Header  fixed={false} />
+            <div className="flex flex-col justify-center items-center pb-10 xl:px-20 xl:py-10 lg:px-20 lg:py-10">
+            
+            <div className="w-full xl:w-[80%]">
+                
+                <KitariPlayer stream_url={data.stream_url} />
+                <Episode title={data.title} total={data.eptotal} id={name} />
+            </div>
+            
+            </div>
+            
+            
+            
         </>
     );
 };

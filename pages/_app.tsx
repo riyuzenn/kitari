@@ -4,6 +4,7 @@ import "@vime/core/themes/default.css";
 import NextNProgress from "nextjs-progressbar";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
+import Header from "../components/header";
 
 function Kitari({ Component, pageProps }: AppProps) {
     return (

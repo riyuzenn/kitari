@@ -5,9 +5,10 @@ import { FaSearch, FaBell } from "react-icons/fa";
 
 type Props = {
     className?: string;
+    fixed?: boolean
 };
 
-export default function Header(props: Props) {
+export default function Header({className = "", fixed = true}) {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
     const router = useRouter();
     const [scrollPosition, setScrollPosition] = useState(0);
@@ -27,9 +28,9 @@ export default function Header(props: Props) {
     return (
         <>
             <div
-                className={`${props.className ? props.className : ""} ${
+                className={`${className ? className : ""} ${
                     scrollPosition || navbarOpen ? "bg-[#000]" : ""
-                } fixed top-0  w-full z-30 clearNav md:bg-opacity-95 transition duration-500 ease-in-out`}
+                 } ${fixed ? "fixed" : "sticky bg-[#010101]" } top-0  w-full z-30 clearNav md:bg-opacity-95 transition duration-500 ease-in-out`}
             >
                 <div className="top-0 z-30 h-1 gb"></div>
                 <div className="flex flex-col max-w-6xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
