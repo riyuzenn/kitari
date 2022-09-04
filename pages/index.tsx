@@ -27,7 +27,7 @@ type Props = {
 const IndexPage = ({ data }: Props) => {
     const router = useRouter();
     return (
-        <div className="h-full w-full min-h-screen min-w-screen py-10">
+        <div className="h-full w-full min-h-screen min-w-screen">
             <Header />
 
             <Banner
