@@ -6,8 +6,8 @@ import Header from "../../../../components/header";
 import { IStreamProps } from "../../../../types";
 
 const KitariPlayer = dynamic(() => import("../../../../components/player"), {
-    ssr: false
-})
+    ssr: false,
+});
 
 type StreamProps = {
     data: IStreamProps;
@@ -17,19 +17,13 @@ const StreamPage = ({ data }: StreamProps) => {
     const { name } = router.query;
     return (
         <>
-            <Header  fixed={false} />
+            <Header fixed={false} />
             <div className="flex flex-col justify-center items-center pb-10 xl:px-20 xl:py-10 lg:px-20 lg:py-10">
-            
-            <div className="w-full xl:w-[80%]">
-                
-                <KitariPlayer stream_url={data.stream_url} />
-                <Episode title={data.title} total={data.eptotal} id={name} />
+                <div className="w-full xl:w-[80%]">
+                    <KitariPlayer stream_url={data.stream_url} />
+                    <Episode title={data.title} total={data.eptotal} id={name} />
+                </div>
             </div>
-            
-            </div>
-            
-            
-            
         </>
     );
 };
@@ -44,7 +38,7 @@ export async function getServerSideProps(context: NextPageContext) {
     });
 
     if (!res.ok) {
-        console.log("Not Ok")
+        console.log("Not Ok");
     }
     console.log(context.query);
     const data = await res.json();

@@ -9,7 +9,7 @@ const WatchPage: NextPage = () => {
         <>
             <div></div>
         </>
-    )
+    );
 };
 
 export default WatchPage;
