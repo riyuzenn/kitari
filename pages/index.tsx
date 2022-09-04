@@ -1,8 +1,10 @@
 import type { NextPageContext } from "next";
+import { useRouter } from "next/router";
 import Banner from "../components/banner";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import TrendingCard from "../components/trending/";
+import simplified from "../lib";
 
 interface DataProps {
     image: string;
@@ -23,6 +25,7 @@ type Props = {
     data: DataProps[];
 };
 const IndexPage = ({ data }: Props) => {
+    const router = useRouter();
     return (
         <div className="h-full w-full min-h-screen min-w-screen py-10">
             <Header />
@@ -35,10 +38,10 @@ const IndexPage = ({ data }: Props) => {
                 airingtime={data[0].type}
                 released={data[0].released}
                 onWatchClick={() => {
-                    alert("Watch");
+                    router.push(`/stream/${simplified(data[0].title)}`);
                 }}
                 onAddClick={() => {
-                    alert("Add");
+                    alert("Currently not implemented");
                 }}
             />
 
