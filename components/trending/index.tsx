@@ -28,19 +28,19 @@ function Skel({ count = 10 }: SkelProps) {
                 .join()
                 .split(",")
                 .map(() => {
-                    return(
-                    <SwiperSlide>
-                        <div>
-                            <div className="relative bg-daccent_1 scale-95 hover:scale-100 transition-all ease-in-out duration-500">
-                                <div className="pt-[140%] bg-daccent_1"></div>
+                    return (
+                        <SwiperSlide>
+                            <div>
+                                <div className="relative bg-daccent_1 scale-95 hover:scale-100 transition-all ease-in-out duration-500">
+                                    <div className="pt-[140%] bg-daccent_1"></div>
+                                </div>
                             </div>
-                        </div>
-                    </SwiperSlide>
+                        </SwiperSlide>
                     );
                 })}
         </>
     );
-};
+}
 
 const TrendingCard = () => {
     function truncate(str: string, words: number) {
@@ -51,7 +51,7 @@ const TrendingCard = () => {
 
     const { data, error } = useFetch<DataProps[]>("https://api.kitari.ml/v1/trending");
 
-    if (error) return `Error:`;
+    if (error) console.log(`Error:`);
     return (
         <>
             <div className="h-auto">
@@ -96,21 +96,20 @@ const TrendingCard = () => {
                             }}
                         >
                             {!data
-                                ? 
-                                Array(10)
-                .join()
-                .split(",")
-                .map(() => {
-                    return(
-                    <SwiperSlide>
-                        <div>
-                            <div className="relative bg-daccent_1 scale-95 hover:scale-100 transition-all ease-in-out duration-500">
-                                <div className="pt-[140%] bg-daccent_1"></div>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    );
-                })
+                                ? Array(10)
+                                      .join()
+                                      .split(",")
+                                      .map(() => {
+                                          return (
+                                              <SwiperSlide>
+                                                  <div>
+                                                      <div className="relative bg-daccent_1 scale-95 hover:scale-100 transition-all ease-in-out duration-500">
+                                                          <div className="pt-[140%] bg-daccent_1"></div>
+                                                      </div>
+                                                  </div>
+                                              </SwiperSlide>
+                                          );
+                                      })
                                 : data?.map((data: DataProps, index: number) => {
                                       return (
                                           <>

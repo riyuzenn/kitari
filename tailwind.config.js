@@ -6,14 +6,14 @@ module.exports = {
     theme: {
         extend: {
             animation: {
-              fade: 'fadeIn 1s ease-in-out',
-              fadeOut: 'fadeOut 1s ease-in-out'
+                fade: "fadeIn 1s ease-in-out",
+                fadeOut: "fadeOut 1s ease-in-out",
             },
             keyframes: {
-              fade: {
-                '0%': { opacity: 0 },
-                '100%': { opacity: 100 },
-              },
+                fade: {
+                    "0%": { opacity: 0 },
+                    "100%": { opacity: 100 },
+                },
             },
         },
         colors: {

@@ -22,7 +22,7 @@ interface TrendProps {
 type Props = {
     data: DataProps[];
 };
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data }: Props) => {
     return (
         <div className="h-full w-full min-h-screen min-w-screen py-10">
             <Header />
