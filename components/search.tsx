@@ -79,6 +79,9 @@ export default function Search() {
                         setDivFocus(true);
                     }}
                     onMouseLeave={() => setDivFocus(false)}
+                    onClick={() => {
+                        setDivFocus(true);
+                    }}
                     className={`
                 ${focus && value ? "block" : "hidden"} flex flex-col transition-all 
                 ease-in-out duration-500 h-96 absolute rounded-b-md border border-daccent_2

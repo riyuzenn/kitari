@@ -19,7 +19,7 @@ function Banner({ title, videourl, synopsis, rating, airingtime, released, onWat
     return (
         <>
             <div className="flex-col xl:flex xl:relative lg:relative lg:flex bg-[#000]">
-                <div className="backdrop">
+                <div className="md:backdrop: lg:backdrop xl:backdrop">
                     <video autoPlay={true} loop={true} muted={true} controls={false} src={videourl}></video>
                 </div>
                 <div
