@@ -39,12 +39,7 @@ export default function Search() {
     const [divFocus, setDivFocus] = useState(false);
     const [value, setValue] = useState("");
 
-    const { data, error } = useFetch<ISearchResult[]>(`https://api.kitari.ml/v1/search?q=${value}`, {
-        method: "GET",
-        headers: new Headers({
-            token: process.env.KITARI_TOKEN || "ENGv9tLVx6P4uoDixSdSflhopNZTj2BtFJXQx_bM1jw",
-        }),
-    });
+    const { data, error } = useFetch<ISearchResult[]>(`https://api.kitari.ml/v1/search?q=${value}`);
     return (
         <React.Fragment>
             <div className="">
