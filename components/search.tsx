@@ -87,7 +87,7 @@ export default function Search() {
                     className={`
                 ${focus && value ? "block" : "hidden"} flex flex-col transition-all 
                 ease-in-out duration-500 h-96 absolute rounded-b-md border border-daccent_2
-                top-13 bg-[#0F0F0F] md:w-96 lg:w-96 xl:w-96 max-w-[250px] space-y-5 overflow-y-auto`}
+                top-13 bg-[#0F0F0F] md:w-96 lg:w-96 xl:w-96 w-[250px] space-y-5 overflow-y-auto`}
                 >
                     {data ? (
                         data.map((v, i) => {
