@@ -11,7 +11,7 @@ import "swiper/css/mousewheel";
 
 import { Rating } from "../rating";
 import { useEffect, useState } from "react";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import simplified from "../../lib";
 
 interface DataProps {
     image: string;
@@ -115,14 +115,16 @@ const TrendingCard = () => {
                                           <>
                                               <SwiperSlide className="animate-fade">
                                                   <div>
-                                                      <div className="relative bg-daccent_1 scale-95 hover:scale-100 transition-all ease-in-out duration-500">
-                                                          <div className="pt-[140%] bg-daccent_1">
-                                                              <img
-                                                                  className="absolute transition-all ease-in-out top-0 left-0 w-full h-full"
-                                                                  src={data.image}
-                                                              />
+                                                      <Link href={`/stream/${simplified(data.title)}`}>
+                                                          <div className="relative bg-daccent_1 scale-95 hover:scale-100 transition-all ease-in-out duration-500">
+                                                              <div className="pt-[140%] bg-daccent_1">
+                                                                  <img
+                                                                      className="absolute transition-all ease-in-out top-0 left-0 w-full h-full"
+                                                                      src={data.image}
+                                                                  />
+                                                              </div>
                                                           </div>
-                                                      </div>
+                                                      </Link>
 
                                                       <p className="pt-5 text-md">{truncate(data.title, 3)}</p>
                                                       <div className="flex space-x-4 items-center">

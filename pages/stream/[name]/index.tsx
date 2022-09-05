@@ -38,10 +38,11 @@ export async function getServerSideProps(context: NextPageContext) {
     });
 
     if (!res.ok) {
+        console.log(res.statusText);
         console.log("Not Ok");
     }
     const data = await res.json();
-    console.log(data);
+
     return { props: { data } };
 }
 export default StreamPage;

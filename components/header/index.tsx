@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FaSearch, FaBell } from "react-icons/fa";
+import Search from "../search";
 
 type Props = {
     className?: string;
@@ -45,44 +46,30 @@ export default function Header({ className = "", fixed = true }) {
                             </a>
                         </Link>
                         <button
-                            className="text-white cursor-pointer leading-none px-3 py-1 md:hidden outline-none focus:outline-none "
+                            className={`font-medium text-[15px] justify-center text-[#a0a0a0] rounded-md hover:text-[#0e0e0e] hover:bg-[#bfbfbf] flex items-center transition duration-150 ease-in-out px-4 py-2`}
                             type="button"
                             aria-label="button"
                             onClick={() => setNavbarOpen(!navbarOpen)}
                         >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="#bfbfbf"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="feather feather-menu"
-                            >
-                                <line x1="3" y1="12" x2="21" y2="12"></line>
-                                <line x1="3" y1="6" x2="21" y2="6"></line>
-                                <line x1="3" y1="18" x2="21" y2="18"></line>
-                            </svg>
+                            <FaSearch size={18} />
                         </button>
                     </div>
                     <div className={"md:flex flex-grow items-center" + (navbarOpen ? " flex" : " hidden")}>
                         <nav className="flex-col flex-grow">
                             <ul className="flex flex-grow justify-center md:justify-end md:px-0 md:pb-0 lg:px-0 lg:pb-0 xl:px-0 xl:pb-0 lg:justify-end xl:justify-end flex-wrap items-center px-2 pb-5 space-x-2">
                                 <li>
-                                    <button
+                                    {/* <button
                                         className={`font-medium text-[15px] justify-center text-[#a0a0a0] rounded-md hover:text-[#0e0e0e] hover:bg-[#bfbfbf] flex items-center transition duration-150 ease-in-out px-4 py-2 ${
                                             router.asPath === "" ? "bg-[#bfbfbf] text-[#0e0e0e]" : ""
                                         }`}
                                     >
                                         <FaSearch size={18} />
-                                    </button>
+                                    </button> */}
+                                    <Search />
                                 </li>
                                 <li>
                                     <button
-                                        className={`font-medium text-[15px] py-2 justify-center text-[#a0a0a0] rounded-md hover:text-[#937193] flex items-center transition duration-150 ease-in-out mx-5 ${
+                                        className={`font-medium text-[15px] hidden py-2 justify-center text-[#a0a0a0] rounded-md hover:text-[#937193] flex items-center transition duration-150 ease-in-out mx-5 ${
                                             router.asPath === "" ? "bg-[#bfbfbf] text-[#0e0e0e]" : ""
                                         }`}
                                     >
@@ -92,7 +79,7 @@ export default function Header({ className = "", fixed = true }) {
                                 <li>
                                     <Link href="/login">
                                         <a
-                                            className={`font-medium text-[15px] rounded-md bg-[#bfbfbf] text-[#0e0e0e] hover:bg-[#a0a0a0] flex items-center transition duration-150 ease-in-out px-5 py-1`}
+                                            className={`font-medium text-[15px] hidden rounded-md bg-[#bfbfbf] text-[#0e0e0e] hover:bg-[#a0a0a0] flex items-center transition duration-150 ease-in-out px-5 py-1`}
                                         >
                                             Login
                                         </a>

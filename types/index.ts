@@ -1,3 +1,4 @@
 import IStreamProps from "./stream";
+import ISearchResult from "./search";
 
-export type { IStreamProps };
+export type { IStreamProps, ISearchResult };
