@@ -46,7 +46,7 @@ export default function Header({ className = "", fixed = true }) {
                             </a>
                         </Link>
                         <button
-                            className={`font-medium text-[15px] justify-center text-[#a0a0a0] rounded-md hover:text-[#0e0e0e] hover:bg-[#bfbfbf] flex items-center transition duration-150 ease-in-out px-4 py-2`}
+                            className={`md:hidden font-medium text-[15px] justify-center text-[#a0a0a0] rounded-md hover:text-[#0e0e0e] hover:bg-[#bfbfbf] flex items-center transition duration-150 ease-in-out px-4 py-2`}
                             type="button"
                             aria-label="button"
                             onClick={() => setNavbarOpen(!navbarOpen)}
