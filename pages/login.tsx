@@ -120,7 +120,7 @@ const LoginPage: NextPage = () => {
                         </div>
                     </div>
 
-                    <Footer notice={false} />
+                    <Footer />
                 </div>
             </div>
         </section>

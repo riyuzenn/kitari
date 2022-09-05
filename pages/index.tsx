@@ -46,7 +46,7 @@ const IndexPage = ({ data }: Props) => {
             />
 
             <TrendingCard />
-            <Footer className="px-10" />
+            <Footer />
         </div>
     );
 };
