@@ -2,6 +2,7 @@ import type { NextPage, NextPageContext } from "next";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import Episode from "../../../components/ep";
+import Footer from "../../../components/footer";
 import Header from "../../../components/header";
 import { IStreamProps } from "../../../types";
 
@@ -24,6 +25,7 @@ const StreamPage = ({ data }: StreamProps) => {
                     <Episode title={data.title} total={data.eptotal} id={name} />
                 </div>
             </div>
+            <Footer />
         </>
     );
 };
