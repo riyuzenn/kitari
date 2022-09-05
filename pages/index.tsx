@@ -58,8 +58,7 @@ export async function getServerSideProps(context: NextPageContext) {
         }),
     });
 
-    // console.log(`${trendres.status} ${await trendres.json()}`);
-
+    
     const data = (await res.json()) as Promise<DataProps[]>;
     return { props: { data } };
 }
